@@ -651,6 +651,7 @@ static int calcEffectiveURI(struct hdfsBuilder *bld, char ** uri)
     scheme = (strstr(bld->nn, "://")) ? "" : "hdfs://";
     if (bld->port == 0) {
         suffix[0] = '\0';
+        scheme = "jfs://";
     } else {
         lastColon = strrchr(bld->nn, ':');
         if (lastColon && (strspn(lastColon + 1, "0123456789") ==
